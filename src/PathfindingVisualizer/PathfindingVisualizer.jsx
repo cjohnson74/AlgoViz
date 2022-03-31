@@ -14,30 +14,41 @@ export default class PathfindingVisualizer extends Component {
     super(props);
     this.state = {
       grid: [],
+      mouseIsPressed: false,
     };
   }
 
   componentDidMount() {
     const grid = getInitialGrid();
-    this.setState({grid});
+    this.setState({ grid });
+  }
+
+  handleMouseDown(row, col) {
+      const newGrid = getNewGridWithWallToggled(this.state.grid, row, col);
+      this.setState({grid: newGrid, mouseIsPressed: true});
+  }
+
+  handleMouseEnter(row, col) {
+      if (!this.state.mouseIsPressed) return;
+      const newGrid = getNewGridWithWallToggled(this.state.grid, row, col);
+      this.setState({grid: newGrid});
+  }
+
+  handleMouseUp() {
+      this.setState({mouseIsPressed: false});
   }
 
   animateDijkstra(visitedNodesInOrder) {
-    for (const node of visitedNodesInOrder) {
-      const newGrid = this.state.grid.slice();
-      const newNode = {
-        ...node,
-        isVisited: true,
-      };
-      newGrid[node.row][node.col] = newNode;
+    for (let i = 0; i <= visitedNodesInOrder.length; i++) {
       setTimeout(() => {
-        this.setState({grid: newGrid});
-      }, 100);
+        const node = visitedNodesInOrder[i];
+        document.getElementById(`node-${node.row}-${node.col}`).className = 'node node-visited';
+      }, 10 * i);
     }
   }
 
   visualizeDijkstra() {
-    const { grid } = this.state;
+    const {grid} = this.state;
     const startNode = grid[START_NODE_ROW][START_NODE_COL];
     const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
     const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
@@ -45,7 +56,7 @@ export default class PathfindingVisualizer extends Component {
   }
 
   render() {
-    const { grid } = this.state;
+    const { grid, mouseIsPressed } = this.state;
 
     return (
       <>
@@ -57,14 +68,19 @@ export default class PathfindingVisualizer extends Component {
             return (
               <div key={rowIdx}>
                 {row.map((node, nodeIdx) => {
-                  const { isStart, isFinish, isVisited } = node;
+                  const { row, col, isStart, isFinish, isVisited, isWall } = node;
                   return (
                     <Node
                       key={nodeIdx}
+                      col={col}
                       isStart={isStart}
                       isFinish={isFinish}
-                      isVisited={isVisited}
-                    ></Node>
+                      isWall={isWall}
+                      mouseIsPressed={mouseIsPressed}
+                      onMouseDown={(row, col) => this.handleMouseDown(row, col)}
+                      onMouseEnter={(row, col) => this.handleMouseEnter(row, col)}
+                    onMouseUp={() => this.handleMouseUp()}
+                    row={row}></Node>
                   );
                 })}
               </div>
