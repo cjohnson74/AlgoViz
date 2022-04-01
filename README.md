@@ -1,4 +1,5 @@
 # Pathfinding Visualizer
+<img width="1161" alt="Screen Shot 2022-03-19 at 9 12 24 PM" src="https://user-images.githubusercontent.com/52815609/161297708-5d8f738d-e1ef-4945-aed0-52b4bf2d18f8.png">
 
 # Deployed Via Heroku
 https://algowizz.herokuapp.com/
