@@ -1,7 +1,7 @@
 .node {
     width: 25px;
     height: 25px;
-    outline: 1px solid grey;
+    outline: 1px solid #6DD4E4;
     display: inline-block;
 }
 
@@ -14,9 +14,38 @@
 }
 
 .node-visited {
-    background-color: blue;
+    animation-name: visitedAnimation;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
 }
 
 .node-wall {
-    background-color: grey;
+    background-color: darkblue;
+}
+
+@keyframes visitedAnimation {
+    0% {
+        transform: scale(0.3);
+        background-color: #741023;
+        border-radius: 100%;
+    }
+
+    50% {
+        background-color: #EF381E;
+    }
+
+    75% {
+        transform: scale(1.2);
+        background-color: #FF6434;
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: #5CC5DA;
+    }
 }

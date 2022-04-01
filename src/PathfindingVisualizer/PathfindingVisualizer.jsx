@@ -42,6 +42,12 @@ export default class PathfindingVisualizer extends Component {
     for (let i = 0; i <= visitedNodesInOrder.length; i++) {
       setTimeout(() => {
         const node = visitedNodesInOrder[i];
+        const newGrid = this.state.grid.slice();
+        const newNode = {
+            ...node,
+            isVisited: true,
+        };
+        newGrid[node.row][node.col] = newNode;
         document.getElementById(`node-${node.row}-${node.col}`).className = 'node node-visited';
       }, 10 * i);
     }
