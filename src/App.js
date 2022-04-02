@@ -47,6 +47,39 @@ const algorithms = [
   }
 ]
 
+const mazesAndPatterns = [
+  {
+    name: "Recursive Division (coming soon)",
+    description: "",
+    href: "#",
+  },
+  {
+    name: "Recursive Division (vertical skew) (coming-soon)",
+    description: "",
+    href: "#",
+  },
+  {
+    name: "Recursive Division (horizontal skew) (coming soon)",
+    description: "",
+    href: "#",
+  },
+  {
+    name: "Basic Random Maze (coming soon)",
+    description: "",
+    href: "#",
+  },
+  {
+    name: "Basic Weight Maze (coming soon)",
+    description: "",
+    href: "#",
+  },
+  {
+    name: "Simple Stair Pattern (coming soon)",
+    description: "",
+    href: "#",
+  }
+]
+
 function App() {
   return (
     <div className="App">
