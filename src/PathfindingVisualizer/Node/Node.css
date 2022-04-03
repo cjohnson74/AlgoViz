@@ -32,7 +32,7 @@
     }
 
     50% {
-        background-color: #FB31FF;
+        background-color: #72FBFA;
     }
 
     75% {
@@ -42,12 +42,12 @@
 
     100% {
         transform: scale(1);
-        background-color: #00F6FF;
+        background-color: #FF36FF;
     }
 }
 
 .node-wall {
-    background-color: #5D152B;
+    background-color: #C4165E;
 }
 
 .node-shortest-path {
@@ -64,16 +64,16 @@
 @keyframes shortestPath {
     0% {
         transform: scale(0.6);
-        background-color: #00FF0E;
+        background-color: #72FBFA;
     }
 
     50% {
         transform: scale(1.2);
-        background-color: #00FF0E;
+        background-color: #72FBFA;
     }
 
     100% {
         transform: scale(1);
-        background-color: #00FF0E;
+        background-color: #72FBFA;
     }
 }
