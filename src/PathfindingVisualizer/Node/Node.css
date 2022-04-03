@@ -1,16 +1,16 @@
 .node {
     width: 25px;
     height: 25px;
-    outline: 1px solid #6DD4E4;
+    outline: 1px solid #F80F79;
     display: inline-block;
 }
 
 .node-finish {
-    background-color: red;
+    background-color: #FE0F04;
 }
 
 .node-start {
-    background-color: green;
+    background-color: #01FF1B;
 }
 
 .node-visited {
@@ -27,27 +27,27 @@
 @keyframes visitedAnimation {
     0% {
         transform: scale(0.3);
-        background-color: #741023;
+        background-color: #FD0726;
         border-radius: 100%;
     }
 
     50% {
-        background-color: #EF381E;
+        background-color: #FB31FF;
     }
 
     75% {
         transform: scale(1.2);
-        background-color: #FF6434;
+        background-color: #07F71F;
     }
 
     100% {
         transform: scale(1);
-        background-color: #5CC5DA;
+        background-color: #00F6FF;
     }
 }
 
 .node-wall {
-    background-color: darkblue;
+    background-color: #5D152B;
 }
 
 .node-shortest-path {
@@ -64,16 +64,16 @@
 @keyframes shortestPath {
     0% {
         transform: scale(0.6);
-        background-color: yellow;
+        background-color: #00FF0E;
     }
 
     50% {
         transform: scale(1.2);
-        background-color: yellow;
+        background-color: #00FF0E;
     }
 
     100% {
         transform: scale(1);
-        background-color: yellow;
+        background-color: #00FF0E;
     }
 }
