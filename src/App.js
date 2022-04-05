@@ -39,7 +39,7 @@ function App() {
               <NavDropdown title="Algorithms" id="collasible-nav-dropdown">
                 <NavDropdown.Item onClick={() => renderSwitch("dijkstra")} href="#Dijkstra">Dijkstra's Algorithm</NavDropdown.Item>
                 <NavDropdown.Item onClick={() => renderSwitch("AStar")} href="#AStar">
-                  A* Search
+                  A* Search (coming soon)
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">
                   Something
