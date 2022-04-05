@@ -71,6 +71,8 @@ export default class PathfindingVisualizer extends Component {
     this.animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
   }
 
+  
+
   render() {
     const { grid, mouseIsPressed } = this.state;
 

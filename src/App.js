@@ -1,11 +1,31 @@
 import logo from "./logo.svg";
 import PathfindingVisualizer from "./PathfindingVisualizer/PathfindingVisualizer";
+import ComingSoon from "./Components/ComingSoon";
 import "../src/index.css";
 import "../src/App.css"
 import "./scss/Custom.scss";
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import { useState } from "react";
 
 function App() {
+  const [appState, setAppState] = useState({
+    component: <PathfindingVisualizer />,
+  })
+
+  function renderSwitch(componentToRender){
+    switch(componentToRender) {
+      case "dykstra":
+        setAppState({component: <PathfindingVisualizer />});
+        return;
+      case "AStar":
+        setAppState({component: <ComingSoon />});
+        return;
+      default:
+        setAppState({component: <PathfindingVisualizer />});
+        return;
+    }
+  }
+
   return (
     <div className="App">
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -17,9 +37,9 @@ function App() {
               <Nav.Link href="#features">Features</Nav.Link>
               <Nav.Link href="#pricing">Pricing</Nav.Link>
               <NavDropdown title="Algorithms" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
+                <NavDropdown.Item onClick={() => renderSwitch("dijkstra")} href="#Dijkstra">Dijkstra's Algorithm</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => renderSwitch("AStar")} href="#AStar">
+                  A* Search
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">
                   Something
@@ -39,7 +59,7 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <PathfindingVisualizer></PathfindingVisualizer>
+      {appState.component}
     </div>
   );
 }
