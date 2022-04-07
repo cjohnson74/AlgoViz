@@ -1,7 +1,7 @@
 .node {
   width: 25px;
   height: 25px;
-  outline: 1px solid #f80f79;
+  outline: 1.9px solid #F69445;
   display: inline-block;
 }
 
@@ -32,22 +32,22 @@
   }
 
   50% {
-    background-color: #ff36ff;
+    background-color: #ff6536;
   }
 
   75% {
     transform: scale(1.2);
-    background-color: #07f71f;
+    background-color: #ff9e4e;
   }
 
   100% {
     transform: scale(1);
-    background-color: #72fbfa;
+    background-color: #22ffff;
   }
 }
 
 .node-wall {
-  background-color: #c4165e;
+  background-color: #0856BE;
 }
 
 .node-shortest-path {
@@ -64,12 +64,12 @@
 @keyframes shortestPath {
   0% {
     transform: scale(0.6);
-    background-color: #07f71f;
+    background-color: #fd0726;
   }
 
   50% {
     transform: scale(1.2);
-    background-color: #07f71f;
+    background-color: #ff9e4e;
   }
 
   100% {
