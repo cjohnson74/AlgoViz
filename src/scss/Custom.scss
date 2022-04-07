@@ -1,6 +1,9 @@
-$dark: #F69445;
-$body-bg: #ffffff;
-$brightblue: #22ffff;
+$dark: #EAE8E8;
+$body-bg: #F6F4F4;
+$brightblue: #00aaff;
 $primary: $brightblue !default;
+$navbar-dark-color: #4F4F4F;
+$navbar-dark-hover-color: #00aaff;
+$navbar-dark-active-color: #00aaff;
 
 @import "/node_modules/bootstrap/scss/bootstrap.scss"
