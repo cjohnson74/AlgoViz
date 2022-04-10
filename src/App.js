@@ -15,13 +15,13 @@ function App() {
 
   function renderSwitch(componentToRender){
     switch(componentToRender) {
-      case "dijkstra":
+      case "Dijkstra":
         setAppState({component: <PathfindingVisualizer />});
         return;
       case "AStar":
         setAppState({component: <ComingSoon />});
         return;
-      case "MergeSort":
+      case "SortingAlgorithms":
         setAppState({component: <SortingVisualizer />});
         return;
       case "ComingSoon":
@@ -41,22 +41,54 @@ function App() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
               <NavDropdown title="Pathfinding Algorithms" id="collasible-nav-dropdown">
-                <NavDropdown.Item onClick={() => renderSwitch("dijkstra")} href="#Dijkstra">
+                <NavDropdown.Item onClick={() => renderSwitch("Dijkstra")} href="#Dijkstra">
                   Dijkstra's Algorithm
                 </NavDropdown.Item>
                 <NavDropdown.Item onClick={() => renderSwitch("AStar")} href="#AStar">
                   A* Search (coming soon)
                 </NavDropdown.Item>
-              </NavDropdown>
-              <NavDropdown title="Sorting Algorithms" id="collasible-nav-dropdown">
-                <NavDropdown.Item onClick={() => renderSwitch("MergeSort")} href="#MergeSort">
-                  Merge Sort
+                <NavDropdown.Item onClick={() => renderSwitch("Greedy")} href="#Greedy">
+                  Greedy Best-first Search (coming soon)
                 </NavDropdown.Item>
-                <NavDropdown.Item onClick={() => renderSwitch("ComingSoon")} href="#ComingSoon">
-                  (coming soon)
+                <NavDropdown.Item onClick={() => renderSwitch("Swarm")} href="#Swarm">
+                  Swarm Algorithm(weighted) (coming soon)
+                </NavDropdown.Item>
+                <NavDropdown.Item onClick={() => renderSwitch("ConvergentSwarm")} href="#ConvergentSwarm">
+                  Convergent Swarm(weighted) (coming soon)
+                </NavDropdown.Item>
+                <NavDropdown.Item onClick={() => renderSwitch("BidirectionalSwarm")} href="#BidirectionalSwarm">
+                  Bidirectional Swarm(weighted) (coming soon)
+                </NavDropdown.Item>
+                <NavDropdown.Item onClick={() => renderSwitch("BreathFirst")} href="#BreathFirst">
+                  Breath-first Search(unweighted) (coming soon)
+                </NavDropdown.Item>
+                <NavDropdown.Item onClick={() => renderSwitch("DepthFirst")} href="#DepthFirst">
+                  Depth-first Search(unweighted) (coming soon)
+                </NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link onClick={() => renderSwitch("SortingAlgorithms")}>Sorting Algorithms</Nav.Link>
+              <NavDropdown title="Data Structures (coming soon)" id="collasible-nav-dropdown">
+                <NavDropdown.Item onClick={() => renderSwitch("Arrays")} href="#Arrays">
+                  Array/List (coming soon)
+                </NavDropdown.Item>
+                <NavDropdown.Item onClick={() => renderSwitch("LinkedLists")} href="#AStar">
+                  Linked List (coming soon)
+                </NavDropdown.Item>
+                <NavDropdown.Item onClick={() => renderSwitch("HashTables")} href="#AStar">
+                  HashTables (coming soon)
+                </NavDropdown.Item>
+                <NavDropdown.Item onClick={() => renderSwitch("Queue")} href="#AStar">
+                  Queue (coming soon)
+                </NavDropdown.Item>
+                <NavDropdown.Item onClick={() => renderSwitch("Stack")} href="#AStar">
+                  Stack (coming soon)
+                </NavDropdown.Item>
+                <NavDropdown.Item onClick={() => renderSwitch("Trees")} href="#AStar">
+                  Trees(Binary) (coming soon)
+                </NavDropdown.Item>
+                <NavDropdown.Item onClick={() => renderSwitch("Graphs")} href="#AStar">
+                  Graphs (coming soon)
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>

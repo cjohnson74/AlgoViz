@@ -3,10 +3,10 @@ import { getMergeSortAnimations } from "../sortingAlgorithms/sortingAlgorithms";
 import "../SortingVisualizer/SortingVisualizer.css";
 
 // Speed of animation can be changed here
-const ANIMATION_SPEED_MS = 3;
+const ANIMATION_SPEED_MS = 200;
 
 // Number of bars (values) in the array can be changed here
-const NUMBER_OF_ARRAY_BARS = 400;
+const NUMBER_OF_ARRAY_BARS = 200;
 
 export default class SortingVisualizer extends React.Component {
   constructor(props) {
@@ -94,6 +94,7 @@ export default class SortingVisualizer extends React.Component {
           onClick={() => this.quickSort()}
         >
           Quick Sort
+          (coming Soon)
         </button>
         <button
           id="startBtn"
@@ -102,6 +103,7 @@ export default class SortingVisualizer extends React.Component {
           onClick={() => this.heapSort()}
         >
           Heap Sort
+          (coming soon)
         </button>
         <button
           id="startBtn"
@@ -110,6 +112,7 @@ export default class SortingVisualizer extends React.Component {
           onClick={() => this.bubbleSort()}
         >
           Bubble Sort
+          (coming soon)
         </button>
       </div>
     );
