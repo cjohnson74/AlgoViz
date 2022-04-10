@@ -6,6 +6,7 @@ import "../src/App.css"
 import "./scss/Custom.scss";
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { useState } from "react";
+import SortingVisualizer from "./SortingVisualizer/SortingVisulaizer";
 
 function App() {
   const [appState, setAppState] = useState({
@@ -14,14 +15,20 @@ function App() {
 
   function renderSwitch(componentToRender){
     switch(componentToRender) {
-      case "dykstra":
+      case "dijkstra":
         setAppState({component: <PathfindingVisualizer />});
         return;
       case "AStar":
         setAppState({component: <ComingSoon />});
         return;
+      case "MergeSort":
+        setAppState({component: <SortingVisualizer />});
+        return;
+      case "ComingSoon":
+        setAppState({component: <ComingSoon />});
+        return;
       default:
-        setAppState({component: <PathfindingVisualizer />});
+        setAppState({component: <ComingSoon />});
         return;
     }
   }
@@ -36,17 +43,20 @@ function App() {
             <Nav className="me-auto">
               <Nav.Link href="#features">Features</Nav.Link>
               <Nav.Link href="#pricing">Pricing</Nav.Link>
-              <NavDropdown title="Algorithms" id="collasible-nav-dropdown">
-                <NavDropdown.Item onClick={() => renderSwitch("dijkstra")} href="#Dijkstra">Dijkstra's Algorithm</NavDropdown.Item>
+              <NavDropdown title="Pathfinding Algorithms" id="collasible-nav-dropdown">
+                <NavDropdown.Item onClick={() => renderSwitch("dijkstra")} href="#Dijkstra">
+                  Dijkstra's Algorithm
+                </NavDropdown.Item>
                 <NavDropdown.Item onClick={() => renderSwitch("AStar")} href="#AStar">
                   A* Search (coming soon)
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
+              </NavDropdown>
+              <NavDropdown title="Sorting Algorithms" id="collasible-nav-dropdown">
+                <NavDropdown.Item onClick={() => renderSwitch("MergeSort")} href="#MergeSort">
+                  Merge Sort
                 </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
+                <NavDropdown.Item onClick={() => renderSwitch("ComingSoon")} href="#ComingSoon">
+                  (coming soon)
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
