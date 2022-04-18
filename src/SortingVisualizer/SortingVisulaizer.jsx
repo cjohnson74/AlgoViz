@@ -3,7 +3,7 @@ import { getMergeSortAnimations } from "../sortingAlgorithms/sortingAlgorithms";
 import "../SortingVisualizer/SortingVisualizer.css";
 
 // Speed of animation can be changed here
-const ANIMATION_SPEED_MS = 200;
+const ANIMATION_SPEED_MS = 3;
 
 // Number of bars (values) in the array can be changed here
 const NUMBER_OF_ARRAY_BARS = 200;
@@ -38,7 +38,7 @@ export default class SortingVisualizer extends React.Component {
         const [barOneIdx, barTwoIdx] = animations[i];
         const barOneStyle = arrayBars[barOneIdx].style;
         const barTwoStyle = arrayBars[barTwoIdx].style;
-        const color = i % 3 === 0 ? 'red' : 'turquoise';
+        const color = i % 3 === 0 ? '#07f71f' : '#ff9e4e';
         setTimeout(() => {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;

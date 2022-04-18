@@ -68,6 +68,8 @@ function App() {
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link onClick={() => renderSwitch("SortingAlgorithms")}>Sorting Algorithms</Nav.Link>
+            </Nav>
+            <Nav>
               <NavDropdown title="Data Structures (coming soon)" id="collasible-nav-dropdown">
                 <NavDropdown.Item onClick={() => renderSwitch("Arrays")} href="#Arrays">
                   Array/List (coming soon)
@@ -91,12 +93,6 @@ function App() {
                   Graphs (coming soon)
                 </NavDropdown.Item>
               </NavDropdown>
-            </Nav>
-            <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Dank memes
-              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
