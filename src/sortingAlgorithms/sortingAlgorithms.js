@@ -13,6 +13,13 @@ export function getBubbleSortAnimations(array) {
   return animations;
 }
 
+export function getQuickSortAnimations(array) {
+  const animations = [];
+  if (array.length <= 1) return array;
+  quickSortHelper(array, 0, array.length - 1, animations);
+  return animations;
+}
+
 function mergeSortHelper(
   mainArray,
   startIdx,
@@ -25,6 +32,48 @@ function mergeSortHelper(
   mergeSortHelper(auxiliaryArray, startIdx, middleIdx, mainArray, animations);
   mergeSortHelper(auxiliaryArray, middleIdx + 1, endIdx, mainArray, animations);
   doMerge(mainArray, startIdx, middleIdx, endIdx, auxiliaryArray, animations);
+}
+
+function quickSortHelper(array, startIdx, endIdx, animations){
+  if (startIdx >= endIdx) return;
+  const pivotIdx = startIdx;
+  let leftIdx = startIdx + 1;
+  let rightIdx = endIdx;
+  // These are the vales that are being compared;
+  // they get pushed once to change their color.
+  animations.push([pivotIdx, leftIdx, rightIdx]);
+  while(rightIdx >= leftIdx){
+    if(array[leftIdx] > array[pivotIdx] && array[rightIdx] < array[pivotIdx]){
+      // These are the values that are being compared;
+      // they get pushed a second time to revert colors.
+      animations.push([pivotIdx, leftIdx, rightIdx]);
+      swap(leftIdx, rightIdx, array, animations);
+    }
+    // These are the values that are being compared;
+    // they get pushed a second time to revert colors.
+    animations.push([pivotIdx, leftIdx, rightIdx]);
+    if (array[leftIdx] <= array[pivotIdx]) leftIdx++;
+    if (array[rightIdx] >= array[pivotIdx]) rightIdx--;
+  }
+  swap(pivotIdx, rightIdx, array, animations);
+  const leftSubarrayIsSmaller = rightIdx - 1 - startIdx < endIdx - (rightIdx + 1);
+  if (leftSubarrayIsSmaller){
+    quickSortHelper(array, startIdx, rightIdx - 1, animations);
+    quickSortHelper(array, rightIdx + 1, endIdx, animations);
+  } else {
+    quickSortHelper(array, rightIdx + 1, endIdx, animations);
+    quickSortHelper(array, startIdx, rightIdx - 1, animations);
+  }
+  console.log(animations);
+}
+
+function swap(i, j, array, animations){
+  // The values get overwritten at index i in the
+  // array with the value at index j.
+  animations.push([i, array[j], j, array[i]]);
+  let temp = array[j];
+  array[j] = array[i];
+  array[i] = temp;
 }
 
 function doMerge(
@@ -120,5 +169,4 @@ function doBubbleSort(array, pointerOne, pointerTwo, max, animations){
     }
     max--;
   }
-  // console.log(animations);
 }

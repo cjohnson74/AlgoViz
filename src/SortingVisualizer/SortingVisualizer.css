@@ -1,6 +1,7 @@
 .array-container {
     position: absolute;
     left: 5px;
+    background: linear-gradient(rgba(246, 244, 244, 0.9), rgba(246, 244, 244, 0.9)), url('../images/Binary\ Background.webp');
 }
 
 .array-bar {

@@ -1,5 +1,5 @@
 import React from "react";
-import { getBubbleSortAnimations, getMergeSortAnimations } from "../sortingAlgorithms/sortingAlgorithms";
+import { getBubbleSortAnimations, getMergeSortAnimations, getQuickSort, getQuickSortAnimations } from "../sortingAlgorithms/sortingAlgorithms";
 import "../SortingVisualizer/SortingVisualizer.css";
 
 // Speed of animation can be changed here
@@ -53,7 +53,34 @@ export default class SortingVisualizer extends React.Component {
     }
   }
 
-  quickSort() {}
+  quickSort() {
+    const animations = getQuickSortAnimations(this.state.array);
+    for (let i = 0; i < animations.length; i++) {
+      const arrayBars = document.getElementsByClassName('array-bar');
+      const isColorChange = animations[i].length !== 4;
+      if (isColorChange) {
+        const [pivotIdx, barOneIdx, barTwoIdx] = animations[i];
+        const barPivotIdx = arrayBars[pivotIdx].style;
+        const barOneStyle = arrayBars[barOneIdx].style;
+        const barTwoStyle = arrayBars[barTwoIdx].style;
+        const color = i % 3 === 0 ? '#07f71f' : '#ff9e4e';
+        setTimeout(() => {
+          barPivotIdx.backgroundColor = color;
+          barOneStyle.backgroundColor = color;
+          barTwoStyle.backgroundColor = color;
+        }, i * ANIMATION_SPEED_MS);
+      } else {
+        setTimeout(() => {
+          const [barOneIdx, barOneNewHeight, barTwoIdx, barTwoNewHeight] = animations[i];
+          const barOneStyle = arrayBars[barOneIdx].style;
+          const barTwoStyle = arrayBars[barTwoIdx].style;
+          barOneStyle.height = `${barOneNewHeight}px`;
+          barTwoStyle.height = `${barTwoNewHeight}px`;
+          barOneStyle.backgroundColor = '#00aaff';
+        }, i * ANIMATION_SPEED_MS);
+      }
+    }
+  }
 
   heapSort() {}
 
@@ -78,6 +105,7 @@ export default class SortingVisualizer extends React.Component {
           const barTwoStyle = arrayBars[barTwoIdx].style;
           barOneStyle.height = `${barOneNewHeight}px`;
           barTwoStyle.height = `${barTwoNewHeight}px`;
+          barOneStyle.backgroundColor = '#00aaff';
         }, i * ANIMATION_SPEED_MS);
       }
     }
@@ -118,7 +146,6 @@ export default class SortingVisualizer extends React.Component {
           onClick={() => this.quickSort()}
         >
           Quick Sort
-          (coming Soon)
         </button>
         <button
           id="startBtn"
