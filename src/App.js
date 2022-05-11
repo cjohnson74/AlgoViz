@@ -1,4 +1,4 @@
-import logo from "./images/logo512.png";
+import logo from "./images/logo.png";
 import PathfindingVisualizer from "./PathfindingVisualizer/PathfindingVisualizer";
 import ComingSoon from "./Components/ComingSoon";
 import "../src/index.css";
@@ -37,7 +37,7 @@ function App() {
     <div className="App">
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home"><img src={logo} width="80px"></img> AlgoViz</Navbar.Brand>
+          <Navbar.Brand href="#home"><img src={logo} width="150px"></img></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">

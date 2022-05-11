@@ -1,6 +1,6 @@
 .App {
     text-align: center;
-    background: linear-gradient(rgba(246, 244, 244, 0.9), rgba(246, 244, 244, 0.9)), url('images/Binary Background.webp');
+    background: linear-gradient(rgba(246, 244, 244, 0.7), rgba(246, 244, 244, 1.0)), url('images/Binary Background.webp');
   }
 
   .App-logo {
