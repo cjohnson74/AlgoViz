@@ -57,13 +57,13 @@ export default class SortingVisualizer extends React.Component {
     const animations = getQuickSortAnimations(this.state.array);
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName('array-bar');
-      const isColorChange = animations[i].length !== 4;
+      const isColorChange = i % 3 !== 2;
       if (isColorChange) {
         const [pivotIdx, barOneIdx, barTwoIdx] = animations[i];
         const barPivotIdx = arrayBars[pivotIdx].style;
         const barOneStyle = arrayBars[barOneIdx].style;
         const barTwoStyle = arrayBars[barTwoIdx].style;
-        const color = i % 3 === 0 ? '#07f71f' : '#ff9e4e';
+        const color = i % 3 === 0 ? '#07f71f' : '#00aaff';
         setTimeout(() => {
           barPivotIdx.backgroundColor = color;
           barOneStyle.backgroundColor = color;
@@ -76,7 +76,7 @@ export default class SortingVisualizer extends React.Component {
           const barTwoStyle = arrayBars[barTwoIdx].style;
           barOneStyle.height = `${barOneNewHeight}px`;
           barTwoStyle.height = `${barTwoNewHeight}px`;
-          barOneStyle.backgroundColor = '#00aaff';
+          barTwoStyle.backgroundColor = '#ff9e4e';
         }, i * ANIMATION_SPEED_MS);
       }
     }

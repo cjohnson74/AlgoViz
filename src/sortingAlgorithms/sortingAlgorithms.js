@@ -48,10 +48,20 @@ function quickSortHelper(array, startIdx, endIdx, animations){
     animations.push([pivotIdx, leftIdx, rightIdx]);
     if(array[leftIdx] > array[pivotIdx] && array[rightIdx] < array[pivotIdx]){
       swap(leftIdx, rightIdx, array, animations);
+    } else {
+      // The values get overwritten at leftIdx in the
+      // array with the value at leftIdx. (heights stay the same)
+      animations.push([leftIdx, array[leftIdx], rightIdx, array[rightIdx]]);
     }
     if (array[leftIdx] <= array[pivotIdx]) leftIdx++;
     if (array[rightIdx] >= array[pivotIdx]) rightIdx--;
   }
+  // These are the vales that are being compared;
+  // they get pushed once to change their color.
+  animations.push([pivotIdx, leftIdx-1, rightIdx]);
+  // These are the values that are being compared;
+  // they get pushed a second time to revert colors.
+  animations.push([pivotIdx, leftIdx-1, rightIdx]);
   swap(pivotIdx, rightIdx, array, animations);
   const leftSubarrayIsSmaller = rightIdx - 1 - startIdx < endIdx - (rightIdx + 1);
   if (leftSubarrayIsSmaller){
