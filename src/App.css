@@ -1,6 +1,6 @@
 .App {
     text-align: center;
-    background: linear-gradient(rgba(246, 244, 244, 0.7), rgba(246, 244, 244, 1.0)), url('images/Binary Background.webp');
+    background: linear-gradient(#F1ECE6, #F1ECE6), url('images/Binary Background.webp');
   }
 
   .App-logo {
@@ -22,7 +22,7 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: white;
+    color: #F1ECE6;
   }
 
   .App-link {

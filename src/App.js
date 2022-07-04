@@ -41,6 +41,7 @@ function App() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
+              <Nav.Link onClick={() => renderSwitch("SortingAlgorithms")}>Sorting Algorithms</Nav.Link>
               <NavDropdown title="Pathfinding Algorithms" id="collasible-nav-dropdown">
                 <NavDropdown.Item onClick={() => renderSwitch("Dijkstra")} href="#Dijkstra">
                   Dijkstra's Algorithm
@@ -67,7 +68,6 @@ function App() {
                   Depth-first Search(unweighted) (coming soon)
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link onClick={() => renderSwitch("SortingAlgorithms")}>Sorting Algorithms</Nav.Link>
             </Nav>
             <Nav>
               <NavDropdown title="Data Structures (coming soon)" id="collasible-nav-dropdown">
